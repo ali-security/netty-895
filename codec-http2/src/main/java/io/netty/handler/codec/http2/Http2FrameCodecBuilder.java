@@ -194,6 +194,18 @@ public class Http2FrameCodecBuilder extends
         return super.decoderEnforceMaxConsecutiveEmptyDataFrames(maxConsecutiveEmptyFrames);
     }
 
+    @Override
+    public Http2FrameCodecBuilder decoderEnforceMaxRstFramesPerWindow(
+            int maxConsecutiveEmptyFrames, int secondsPerWindow) {
+        return super.decoderEnforceMaxRstFramesPerWindow(maxConsecutiveEmptyFrames, secondsPerWindow);
+    }
+
+    @Override
+    public Http2FrameCodecBuilder encoderEnforceMaxRstFramesPerWindow(
+            int maxRstFramesPerWindow, int secondsPerWindow) {
+        return super.encoderEnforceMaxRstFramesPerWindow(maxRstFramesPerWindow, secondsPerWindow);
+    }
+
     /**
      * Build a {@link Http2FrameCodec} object.
      */

@@ -19,6 +19,8 @@ package io.netty.handler.codec.http2;
 import io.netty.handler.codec.http2.Http2HeadersEncoder.SensitivityDetector;
 import io.netty.util.internal.UnstableApi;
 
+import static io.netty.util.internal.ObjectUtil.checkPositiveOrZero;
+
 /**
  * Builder which builds {@link Http2ConnectionHandler} objects.
  */
@@ -106,6 +108,12 @@ public final class Http2ConnectionHandlerBuilder
     @Override
     public Http2ConnectionHandlerBuilder flushPreface(boolean flushPreface) {
         return super.flushPreface(flushPreface);
+    }
+
+    @Override
+    public Http2ConnectionHandlerBuilder encoderEnforceMaxRstFramesPerWindow(
+            int maxRstFramesPerWindow, int secondsPerWindow) {
+        return super.encoderEnforceMaxRstFramesPerWindow(maxRstFramesPerWindow, secondsPerWindow);
     }
 
     @Override
